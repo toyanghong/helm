@@ -9,6 +9,10 @@ $ ./get_helm.sh
 # 替换镜像
 
 	registry.cn-zhangjiakou.aliyuncs.com/ydocker/tiller:v2.13.0
+	
+# 初始化参考
+
+https://helm.sh/docs/using_helm/#installing-helm
 
 # Helm
 
