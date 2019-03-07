@@ -1,3 +1,15 @@
+
+# 您可以获取该脚本，然后在本地执行它。它有详细记录，因此您可以在运行之前仔细阅读并了解它的作用。
+```
+$ curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+```
+
+# 替换镜像
+
+	registry.cn-zhangjiakou.aliyuncs.com/ydocker/tiller:v2.13.0
+
 # Helm
 
 [![CircleCI](https://circleci.com/gh/helm/helm.svg?style=shield)](https://circleci.com/gh/helm/helm)
