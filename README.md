@@ -10,6 +10,36 @@ $ ./get_helm.sh
 
 	registry.cn-zhangjiakou.aliyuncs.com/ydocker/tiller:v2.13.0
 	
+# 具有集群管理员角色的服务帐户
+在rbac-config.yaml：
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: tiller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
+注意：默认情况下，在Kubernetes集群中创建集群管理员角色，因此您无需明确定义它。
+
+$ kubectl create -f rbac-config.yaml
+serviceaccount "tiller" created
+clusterrolebinding "tiller" created
+$ helm init --service-account tiller
+``` 
+
+	
 # 初始化参考
 
 https://helm.sh/docs/using_helm/#installing-helm
